@@ -20,7 +20,7 @@ window.onload = function() {
   for( var i = 0; i < editors.length; i++ ) {
     var content = editors[i].querySelector( '.quill-editor-content' );
     if( content ) {
-      var options = editors[0].getAttribute( 'data-options' ) ? JSON.parse( editors[0].getAttribute( 'data-options' ) ) : default_options;
+      var options = editors[i].getAttribute( 'data-options' ) ? JSON.parse( editors[i].getAttribute( 'data-options' ) ) : default_options;
       editors[i]['_quill-editor'] = new Quill( content, options );
     }
   }
