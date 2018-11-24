@@ -23,7 +23,7 @@ Why 2 separated scripts? In this way you can include a different version of *qui
 
 ## Options
 
-**data-options**: permits to set *quill editor* options directly - see [options list](https://quilljs.com/docs/quickstart/)
+**data-options**: permits to set *quill editor* options directly - see [options list](https://quilljs.com/docs/configuration/)
 
 ## Examples
 
