@@ -1,0 +1,73 @@
+require:
+  - rubocop-rspec
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.3.8
+  TargetRailsVersion: 5.2
+  Exclude:
+    - db/schema.rb
+    - bin/*
+    - node_modules/**/*
+    # Temporary files
+    - tmp/**/*
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  # Default value is 100
+  Max: 150
+
+Metrics/LineLength:
+  # Default is 80
+  Max: 120
+
+Metrics/ModuleLength:
+  # Default is 100
+  Max: 150
+
+Metrics/ParameterLists:
+  # Default is 5
+  Max: 6
+
+RSpec/ExampleLength:
+  # Default is 10
+  Max: 20
+
+Style/FrozenStringLiteralComment:
+  # Deface DOES edit strings in place
+  Exclude:
+    - 'app/overrides/**/*'
+
+RSpec/MultipleExpectations:
+  # Default is 3
+  Max: 5
+
+RSpec/NestedGroups:
+  # Default is 3
+  Max: 6
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/BlockLength:
+  # This value double the rubocop default
+  Max: 50
+
+Metrics/CyclomaticComplexity:
+  # This value double the rubocop default
+  Max: 12
+
+Metrics/MethodLength:
+  # This value double the rubocop default
+  Max: 20
+
+Metrics/PerceivedComplexity:
+  # Default is 7
+  Max: 10

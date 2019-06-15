@@ -7,7 +7,6 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 ## Install
 
 - Update your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
-- For ActiveAdmin2 alpha use: `gem 'activeadmin_quill_editor', git: 'https://github.com/blocknotes/activeadmin_quill_editor', branch: 'aa2'`
 - Add at the end of your ActiveAdmin styles (_app/assets/stylesheets/active_admin.scss_):
 ```css
 @import 'activeadmin/quill_editor_input';
