@@ -30,7 +30,11 @@ function initQuillEditors() {
     formtastic.onsubmit = function() {
       for(var i = 0; i < editors.length; i++) {
         var input = editors[i].querySelector('input[type="hidden"]');
-        input.value = editors[i]['_quill-editor'].root.innerHTML;
+        if (editors[i]['_quill-editor'].editor.isBlank()) {
+          input.value = '';
+        } else {
+          input.value = editors[i]['_quill-editor'].root.innerHTML;
+        }
       }
     };
   }
