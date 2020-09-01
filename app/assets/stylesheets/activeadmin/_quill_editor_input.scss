@@ -1,0 +1,42 @@
+@import 'activeadmin/quill_editor/quill.snow';
+
+body.active_admin .quill-editor {
+  display: inline-block;
+  width: calc(80% - 22px);
+
+  button:hover {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .ql-editor {
+    background-color: #fff;
+    max-height: 300px;
+    min-height: 150px;
+    padding: 10px;
+
+    // reset internal elements
+    * {
+      margin: initial;
+      padding: initial;
+      text-align: initial;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ul, ol {
+      margin: 0 1.5em 1.5em 0;
+      padding-left: 1.5em;
+    }
+  }
+}
