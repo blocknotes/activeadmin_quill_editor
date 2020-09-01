@@ -1,4 +1,4 @@
-# ActiveAdmin Quill Editor [![Gem Version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor)
+# ActiveAdmin Quill Editor [![Gem Version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor) [![CircleCI](https://circleci.com/gh/blocknotes/activeadmin_quill_editor.svg?style=svg)](https://circleci.com/gh/blocknotes/activeadmin_quill_editor)
 
 An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quilljs/quill)
 
@@ -20,6 +20,8 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 - Use the input with `as: :quill_editor` in Active Admin model conf
 
 Why 2 separated scripts? In this way you can include a different version of *quill editor* if you like.
+
+> **UPDATE FROM VERSION <= 2.0**: please add to your _app/assets/stylesheets/active_admin.scss_ the line `@import 'activeadmin/quill_editor/quill.snow';`
 
 ## Options
 
