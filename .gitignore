@@ -1,3 +1,12 @@
-_misc/
-
+*.gem
 *.orig
+
+/.rspec_failures
+/Gemfile.lock
+
+/_misc/
+/coverage/
+/spec/dummy/db/*.sqlite3*
+/spec/dummy/log/
+/spec/dummy/storage/
+/spec/dummy/tmp/

@@ -14,8 +14,18 @@ Gem::Specification.new do |spec|
   spec.email         = 'mat@blocknot.es'
   spec.homepage      = 'https://github.com/blocknotes/activeadmin_quill_editor'
 
-  spec.files         = `git ls-files -z`.split("\x0")
+  spec.files         = Dir['{app,lib}/**/*', 'LICENSE.txt', 'Rakefile', 'README.md']
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activeadmin', '>= 1.0'
+  spec.add_runtime_dependency 'activeadmin', '~> 2.0'
+
+  spec.add_development_dependency 'activestorage', '~> 6.0.3.2'
+  spec.add_development_dependency 'capybara', '~> 3.33.0'
+  spec.add_development_dependency 'pry', '~> 0.13.1'
+  spec.add_development_dependency 'puma', '~> 4.3.5'
+  spec.add_development_dependency 'rspec_junit_formatter', '~> 0.4.1'
+  spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
+  spec.add_development_dependency 'selenium-webdriver', '~> 3.142.7'
+  spec.add_development_dependency 'simplecov', '~> 0.19.0'
+  spec.add_development_dependency 'sqlite3', '~> 1.4.2'
 end
