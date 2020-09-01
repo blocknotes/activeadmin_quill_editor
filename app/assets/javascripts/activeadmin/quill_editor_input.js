@@ -1,12 +1,4 @@
-window.onload = function() {
-  initQuillEditors();
-}
-
-$(document).on('has_many_add:after', function() {
-  initQuillEditors();
-});
-
-var initQuillEditors = function() {
+function initQuillEditors() {
   var editors = document.querySelectorAll('.quill-editor');
   var default_options = {
     modules: {
@@ -42,4 +34,12 @@ var initQuillEditors = function() {
       }
     };
   }
-};
+}
+
+$(document).ready( function() {
+  initQuillEditors();
+});
+
+$(document).on('has_many_add:after', function() {
+  initQuillEditors();
+});

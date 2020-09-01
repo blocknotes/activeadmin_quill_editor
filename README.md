@@ -8,7 +8,8 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 
 - Update your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
 - Add at the end of your ActiveAdmin styles (_app/assets/stylesheets/active_admin.scss_):
-```css
+```scss
+@import 'activeadmin/quill_editor/quill.snow';
 @import 'activeadmin/quill_editor_input';
 ```
 - Add at the end of your ActiveAdmin javascripts (_app/assets/javascripts/active_admin.js_):
@@ -56,7 +57,7 @@ Take a look at [other ActiveAdmin components](https://github.com/blocknotes?utf8
 
 ## Contributors
 
-- [Mattia Roccoberton](http://blocknot.es) - creator, maintainer
+- [Mattia Roccoberton](http://blocknot.es): author
 
 ## License
 
