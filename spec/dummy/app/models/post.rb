@@ -10,6 +10,10 @@ class Post < ApplicationRecord
   has_many :post_tags, inverse_of: :post, dependent: :destroy
   has_many :tags, through: :post_tags
 
+  has_many_attached :images
+
+  accepts_nested_attributes_for :post_tags, allow_destroy: true
+
   validates :title, allow_blank: false, presence: true
 
   scope :published, -> { where(published: true) }

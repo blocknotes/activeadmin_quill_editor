@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Author do
-  menu priority: 1
-
-  permit_params :name, :email, :age, :avatar, profile_attributes: %i[id description _destroy]
+  permit_params :name,
+                :email,
+                :age,
+                :avatar,
+                profile_attributes: %i[id description _destroy],
+                posts_attributes: %i[id title description]
 
   index do
     selectable_column
@@ -28,6 +31,7 @@ ActiveAdmin.register Author do
       row :created_at
       row :updated_at
       row :profile
+      row :posts
     end
     active_admin_comments
   end
@@ -43,6 +47,10 @@ ActiveAdmin.register Author do
     end
     f.has_many :profile, allow_destroy: true do |ff|
       ff.input :description
+    end
+    f.has_many :posts do |fp|
+      fp.input :title
+      fp.input :description, as: :quill_editor
     end
     f.actions
   end
