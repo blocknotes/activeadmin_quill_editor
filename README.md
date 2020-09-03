@@ -5,14 +5,13 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 ![screenshot](screenshot.png)
 
 ## Install
-
-- Update your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
-- Add at the end of your ActiveAdmin styles (_app/assets/stylesheets/active_admin.scss_):
+- After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
+- Add at the end of your Active Admin styles (_app/assets/stylesheets/active_admin.scss_):
 ```scss
 @import 'activeadmin/quill_editor/quill.snow';
 @import 'activeadmin/quill_editor_input';
 ```
-- Add at the end of your ActiveAdmin javascripts (_app/assets/javascripts/active_admin.js_):
+- Add at the end of your Active Admin javascripts (_app/assets/javascripts/active_admin.js_):
 ```js
 //= require activeadmin/quill_editor/quill
 //= require activeadmin/quill_editor_input
@@ -24,13 +23,14 @@ Why 2 separated scripts? In this way you can include a different version of *qui
 > **UPDATE FROM VERSION <= 2.0**: please add to your _app/assets/stylesheets/active_admin.scss_ the line `@import 'activeadmin/quill_editor/quill.snow';`
 
 ## Options
-
 **data-options**: permits to set *quill editor* options directly - see [options list](https://quilljs.com/docs/configuration/)
 
 ## Examples
 
+### Basic usage
+
 ```ruby
-# ActiveAdmin article form conf:
+# Active Admin article form conf:
   form do |f|
     f.inputs 'Article' do
       f.input :title
@@ -41,26 +41,23 @@ Why 2 separated scripts? In this way you can include a different version of *qui
   end
 ```
 
-Toolbar buttons configuration:
+### Toolbar buttons configuration
 
 ```ruby
 f.input :description, as: :quill_editor, input_html: {data: {options: {modules: {toolbar: [['bold', 'italic', 'underline'], ['link']]}, placeholder: 'Type something...', theme: 'snow'}}}
 ```
 
 ## Notes
-
 - Upload functions (Images, Documents, Files, etc.) are not implemented yet
 
 ## Do you like it? Star it!
-
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest.
 
-Take a look at [other ActiveAdmin components](https://github.com/blocknotes?utf8=✓&tab=repositories&q=activeadmin&type=source) that I made if you are curious.
+Take a look at [other Active Admin components](https://github.com/blocknotes?utf8=✓&tab=repositories&q=activeadmin&type=source) that I made if you are curious.
 
 ## Contributors
-
 - [Mattia Roccoberton](http://blocknot.es): author
+- The good guys that opened issues and pull requests from time to time
 
 ## License
-
-[MIT](LICENSE.txt)
+- The gem is available as open-source under the terms of the [MIT](LICENSE.txt)
