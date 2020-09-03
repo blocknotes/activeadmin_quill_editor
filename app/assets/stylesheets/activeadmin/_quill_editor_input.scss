@@ -1,10 +1,20 @@
 body.active_admin .quill-editor {
   display: inline-block;
-  width: calc(80% - 22px);
+  width: calc(80% - 2px);
 
-  button:hover {
-    background-image: none;
-    background-color: rgba(0, 0, 0, 0.1);
+  button {
+    text-shadow: none;
+    box-shadow: none;
+
+    &:hover {
+      background-image: none;
+      background-color: transparent;
+    }
+  }
+
+  .ql-container {
+    border: 1px solid #c9d0d6;
+    border-radius: 0 0 3px 3px;
   }
 
   .ql-editor {
@@ -36,5 +46,10 @@ body.active_admin .quill-editor {
       margin: 0 1.5em 1.5em 0;
       padding-left: 1.5em;
     }
+  }
+
+  .ql-toolbar {
+    border: 1px solid #c9d0d6;
+    border-radius: 3px 3px 0 0;
   }
 }
