@@ -2,7 +2,7 @@
 
 An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quilljs/quill)
 
-![screenshot](screenshot.jpg)
+![screenshot](screenshot.png)
 
 ## Install
 
