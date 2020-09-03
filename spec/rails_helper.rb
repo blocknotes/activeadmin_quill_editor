@@ -13,12 +13,6 @@ require 'capybara/rails'
 
 Dir[File.expand_path('support/**/*.rb', __dir__)].sort.each { |f| require f }
 
-require 'simplecov'
-SimpleCov.start :rails do
-  filters.clear
-  add_filter %r{^/spec/}
-end
-
 # Force deprecations to raise an exception.
 ActiveSupport::Deprecation.behavior = :raise
 
