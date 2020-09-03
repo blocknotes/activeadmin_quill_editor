@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'puma', '~> 4.3.5'
   spec.add_development_dependency 'rspec_junit_formatter', '~> 0.4.1'
   spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
+  spec.add_development_dependency 'rubocop', '~> 0.90.0'
   spec.add_development_dependency 'selenium-webdriver', '~> 3.142.7'
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
 end
