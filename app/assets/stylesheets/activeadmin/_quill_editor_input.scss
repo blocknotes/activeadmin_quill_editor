@@ -1,3 +1,10 @@
+// reset internal elements
+.ql-editor * {
+  margin: initial;
+  padding: initial;
+  text-align: initial;
+}
+
 body.active_admin .quill-editor {
   display: inline-block;
   width: calc(80% - 2px);
@@ -22,13 +29,6 @@ body.active_admin .quill-editor {
     max-height: 300px;
     min-height: 150px;
     padding: 10px;
-
-    // reset internal elements
-    * {
-      margin: initial;
-      padding: initial;
-      text-align: initial;
-    }
 
     ol {
       list-style-type: decimal;
