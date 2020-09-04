@@ -47,9 +47,6 @@ Why 2 separated scripts/styles? In this way you can include a different version 
 f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: [['bold', 'italic', 'underline'], ['link']] }, placeholder: 'Type something...', theme: 'snow' } } }
 ```
 
-## Notes
-- Upload features (images/documents/files): not tested yet.
-
 ## Do you like it? Star it!
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest.
 
