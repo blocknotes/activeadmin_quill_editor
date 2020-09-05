@@ -47,6 +47,32 @@ Why 2 separated scripts/styles? In this way you can include a different version 
 f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: [['bold', 'italic', 'underline'], ['link']] }, placeholder: 'Type something...', theme: 'snow' } } }
 ```
 
+### ImageUploader plugin
+This plugin allows to upload images to the server (instead of storing them in *base64* by default), reference [here](https://github.com/NoelOConnell/quill-image-uploader).
+
+```ruby
+# Upload method (to be included in the admin entity configuration)
+member_action :upload, method: [:post] do
+  result = { success: resource.images.attach(params[:file_upload]) }
+  result[:url] = url_for(resource.images.last) if result[:success]
+  render json: result
+end
+```
+
+```ruby
+# Form field
+unless object.new_record?
+  plugin_opts = { image_uploader: { server_url: upload_admin_post_path(object.id), field_name: 'file_upload' } }
+  f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
+end
+```
+
+For the relevant files of the upload example see [here](examples/upload_plugin_using_activestorage/).
+Consider that this is just a basic example: images are uploaded as soon as they are attached to the
+ editor (regardless of the form submit), it shows the editor only for an existing record (because of
+the *upload_admin_post_path*) and it doesn't provide a way to remove images (just deleting them from
+the editor will not destroy them, you'll need to implement a purge logic for that).
+
 ## Do you like it? Star it!
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest.
 
