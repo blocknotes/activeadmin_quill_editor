@@ -5,7 +5,7 @@
   text-align: initial;
 }
 
-body.active_admin .quill-editor {
+body.active_admin [data-aa-quill-editor] {
   display: inline-block;
   width: calc(80% - 2px);
 
