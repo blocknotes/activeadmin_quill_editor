@@ -1,4 +1,6 @@
 (function () {
+  'use strict'
+
   // --- functions ---------------------------------------------------------------
   function initQuillEditors() {
     let default_theme = 'snow'
