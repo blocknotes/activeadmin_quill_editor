@@ -17,6 +17,10 @@ RSpec.describe 'Quill editor', type: :system do
     it 'updates some HTML content' do
       visit "/admin/posts/#{post.id}/edit"
 
+      %w[bold italic underline link].each do |button|
+        expect(page).to have_css(".ql-toolbar button.ql-#{button}")
+      end
+      expect(page).to have_css('#post_description[data-aa-quill-editor]')
       expect(page).to have_css('#post_description_input .ql-editor', text: 'Some content...')
       find('#post_description_input .ql-editor').click
       find('#post_description_input .ql-editor').base.send_keys('more text')

@@ -38,10 +38,11 @@ ActiveAdmin.register Post do
   end
 
   form do |f|
+    toolbar = %w[bold italic underline link]
     f.inputs 'Post' do
       f.input :author
       f.input :title
-      f.input :description, as: :quill_editor
+      f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
       f.input :category
       f.input :dt
       f.input :position
