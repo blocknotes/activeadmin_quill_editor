@@ -2,6 +2,6 @@
 
 module ActiveAdmin
   module QuillEditor
-    VERSION = '0.2.12'
+    VERSION = '0.2.14'
   end
 end
