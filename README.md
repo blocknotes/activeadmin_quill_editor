@@ -5,7 +5,10 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 ![screenshot](screenshot.png)
 
 ## Install
-- After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
+After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
+
+If you installed Active Admin without Webpacker support (default for now):
+
 - Add at the end of your Active Admin styles (_app/assets/stylesheets/active_admin.scss_):
 ```scss
 @import 'activeadmin/quill_editor/quill.snow';
@@ -16,13 +19,23 @@ An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quillj
 //= require activeadmin/quill_editor/quill
 //= require activeadmin/quill_editor_input
 ```
-- Use the input with `as: :quill_editor` in Active Admin model conf
-
-Why 2 separated scripts/styles? In this way you can include a different version of *quill editor* if you like.
 
 > **UPDATE FROM VERSION <= 2.0**: please add to your _app/assets/stylesheets/active_admin.scss_ the line `@import 'activeadmin/quill_editor/quill.snow';`
 
-## Options
+If you installed Active Admin with Webpacker support:
+
+- Execute in your project root:
+```sh
+yarn add blocknotes/activeadmin_quill_editor
+```
+- Add to your *app/javascript/packs/active_admin.js*:
+```js
+require('activeadmin_quill_editor')
+```
+
+## Usage
+In your Active Admin models, form configuration, set the text inputs with `as: :quill_editor` where needed.
+
 **data-options**: permits to set *quill editor* options directly - see [options list](https://quilljs.com/docs/configuration/)
 
 ## Examples
