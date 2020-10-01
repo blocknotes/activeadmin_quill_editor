@@ -29,6 +29,7 @@ body.active_admin [data-aa-quill-editor] {
     max-height: 300px;
     min-height: 150px;
     padding: 10px;
+    word-break: break-all;
 
     ol {
       list-style-type: decimal;
