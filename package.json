@@ -1,0 +1,9 @@
+{
+  "name": "activeadmin_quill_editor",
+  "version": "0.3.0",
+  "description": "Quill Editor for ActiveAdmin",
+  "author": "Mattia Roccoberton <mat@blocknot.es>",
+  "license": "MIT",
+  "homepage": "https://github.com/blocknotes/activeadmin_quill_editor",
+  "main": "index.js"
+}
