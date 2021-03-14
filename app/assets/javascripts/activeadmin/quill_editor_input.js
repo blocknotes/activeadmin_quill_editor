@@ -85,11 +85,7 @@
   }
 
   // --- events ------------------------------------------------------------------
-  $(document).ready(() => {
-    initQuillEditors()
-  })
-
-  $(document).on('has_many_add:after', '.has_many_container', () => {
-    initQuillEditors()
-  })
+  $(document).ready(initQuillEditors)
+  $(document).on('has_many_add:after', '.has_many_container', initQuillEditors)
+  $(document).on('turbolinks:load', initQuillEditors)
 })()
