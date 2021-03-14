@@ -9,12 +9,12 @@ RSpec.describe 'Quill editor', type: :system do
   end
 
   after do
-    Post.destroy_all
-    author.destroy
+    Post.delete_all
+    author.delete
   end
 
   context 'with a Quill editor' do
-    it 'updates some HTML content' do
+    it 'initialize the editor' do
       visit "/admin/posts/#{post.id}/edit"
 
       %w[bold italic underline link].each do |button|
@@ -22,12 +22,36 @@ RSpec.describe 'Quill editor', type: :system do
       end
       expect(page).to have_css('#post_description[data-aa-quill-editor]')
       expect(page).to have_css('#post_description_input .ql-editor', text: 'Some content...')
+    end
+
+    it 'adds some text to the description' do
+      visit "/admin/posts/#{post.id}/edit"
+
       find('#post_description_input .ql-editor').click
       find('#post_description_input .ql-editor').base.send_keys('more text')
-
       find('[type="submit"]').click
       expect(page).to have_content('was successfully updated')
       expect(post.reload.description).to eq '<p>Some content...more text</p>'
+    end
+
+    it 'adds some bold text to the description' do
+      visit "/admin/posts/#{post.id}/edit"
+
+      find('#post_description_input .ql-editor').click
+      find('#post_description_input .ql-toolbar .ql-bold').click
+      find('#post_description_input .ql-editor').base.send_keys('more text')
+      find('[type="submit"]').click
+      expect(post.reload.description).to eq '<p>Some content...<strong>more text</strong></p>'
+    end
+
+    it 'adds some italic text to the description' do
+      visit "/admin/posts/#{post.id}/edit"
+
+      find('#post_description_input .ql-editor').click
+      find('#post_description_input .ql-toolbar .ql-italic').click
+      find('#post_description_input .ql-editor').base.send_keys('more text')
+      find('[type="submit"]').click
+      expect(post.reload.description).to eq '<p>Some content...<em>more text</em></p>'
     end
   end
 
