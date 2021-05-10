@@ -60,6 +60,30 @@ In your Active Admin models, form configuration, set the text inputs with `as: :
 f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: [['bold', 'italic', 'underline'], ['link']] }, placeholder: 'Type something...', theme: 'snow' } } }
 ```
 
+The default (snow) toolbar is the equivalent of:
+```ruby
+[
+  ['bold', 'italic', 'underline'],
+  ['link', 'blockquote', 'code-block'],
+  [{ script: 'sub' }, { script: 'super' }],
+  [{ align: [] }, { list: 'ordered' }, { list: 'bullet' }],
+  [{ color: [] }, { background: [] }],
+  ['image'], # see configuration below to set up
+  ['clean']
+]
+```
+
+Other toolbar options include:
+```ruby
+  ['strike']                                       # strike through
+  [{ 'header': 1 }, { 'header': 2 }]               # header size as buttons
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }]        # header size as dropdown
+  [{ 'indent': '-1'}, { 'indent': '+1' }]          # outdent/indent
+  [{ 'direction': 'rtl' }]                         # text direction
+  [{ 'size': ['small', false, 'large', 'huge'] }]  # text size
+  [{ 'font': [] }],                                # font
+```
+
 ### ImageUploader plugin
 This plugin allows to upload images to the server (instead of storing them in *base64* by default), reference [here](https://github.com/NoelOConnell/quill-image-uploader).
 
