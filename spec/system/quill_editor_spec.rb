@@ -2,16 +2,7 @@
 
 RSpec.describe 'Quill editor', type: :system do
   let(:author) { Author.create!(email: 'some_email@example.com', name: 'John Doe', age: 30) }
-  let(:post) { Post.create!(title: 'Test', author: author, description: 'Some content...') }
-
-  before do
-    post
-  end
-
-  after do
-    Post.delete_all
-    author.delete
-  end
+  let!(:post) { Post.create!(title: 'Test', author: author, description: 'Some content...') }
 
   context 'with a Quill editor' do
     it 'initialize the editor' do
@@ -30,6 +21,7 @@ RSpec.describe 'Quill editor', type: :system do
       find('#post_description_input .ql-editor').click
       find('#post_description_input .ql-editor').base.send_keys('more text')
       find('[type="submit"]').click
+
       expect(page).to have_content('was successfully updated')
       expect(post.reload.description).to eq '<p>Some content...more text</p>'
     end
@@ -41,6 +33,7 @@ RSpec.describe 'Quill editor', type: :system do
       find('#post_description_input .ql-toolbar .ql-bold').click
       find('#post_description_input .ql-editor').base.send_keys('more text')
       find('[type="submit"]').click
+
       expect(post.reload.description).to eq '<p>Some content...<strong>more text</strong></p>'
     end
 
@@ -51,7 +44,26 @@ RSpec.describe 'Quill editor', type: :system do
       find('#post_description_input .ql-toolbar .ql-italic').click
       find('#post_description_input .ql-editor').base.send_keys('more text')
       find('[type="submit"]').click
+
       expect(post.reload.description).to eq '<p>Some content...<em>more text</em></p>'
+    end
+  end
+
+  context 'with 2 Quill editors' do
+    it 'updates some HTML content for 2 fields' do
+      visit "/admin/posts/#{post.id}/edit"
+
+      find('#post_description_input .ql-editor').click
+      find('#post_description_input .ql-toolbar .ql-bold').click
+      find('#post_description_input .ql-editor').base.send_keys('more text')
+      find('#post_summary_input .ql-editor').click
+      find('#post_summary_input .ql-toolbar .ql-italic').click
+      find('#post_summary_input .ql-editor').base.send_keys('Summary text')
+      find('[type="submit"]').click
+      post.reload
+
+      expect(post.description).to eq '<p>Some content...<strong>more text</strong></p>'
+      expect(post.summary).to eq '<p><em>Summary text</em></p>'
     end
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Post do
-  permit_params :author_id, :title, :description, :category, :dt, :position, :published, tag_ids: []
+  permit_params :author_id, :title, :summary, :description, :category, :dt, :position, :published, tag_ids: []
 
   index do
     selectable_column
@@ -17,6 +17,7 @@ ActiveAdmin.register Post do
     attributes_table do
       row :author
       row :title
+      row :summary
       row :description
       row :category
       row :dt
@@ -42,6 +43,7 @@ ActiveAdmin.register Post do
     f.inputs 'Post' do
       f.input :author
       f.input :title
+      f.input :summary, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
       f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
       f.input :category
       f.input :dt
