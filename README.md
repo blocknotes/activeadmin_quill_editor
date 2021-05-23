@@ -1,8 +1,10 @@
-# ActiveAdmin Quill Editor [![Gem Version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor) [![Specs](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml)
+# ActiveAdmin Quill Editor [![Gem Version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor) [![Gem downloads](https://badgen.net/rubygems/dt/activeadmin_quill_editor)](https://rubygems.org/gems/activeadmin_quill_editor) [![Specs](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml)
 
 An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quilljs/quill) in form fields.
 
 ![screenshot](screenshot.png)
+
+Please :star: if you like it.
 
 ## Install
 
