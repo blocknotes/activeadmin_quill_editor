@@ -1,0 +1,11 @@
+---
+exclude_paths:
+  - spec/dummy
+  - vendor
+
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  TooManyStatements:
+    # default 5
+    max_statements: 10

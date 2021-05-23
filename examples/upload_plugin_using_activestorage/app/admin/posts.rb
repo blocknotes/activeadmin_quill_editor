@@ -41,7 +41,7 @@ ActiveAdmin.register Post do
       row :images do |resurce|
         resurce.images.each do |image|
           div do
-            link_to image.filename, image, target: '_blank'
+            link_to image.filename, image, target: '_blank', rel: 'noopener'
           end
         end
         nil
