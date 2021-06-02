@@ -1,3 +1,4 @@
+---
 inherit_from:
   - https://relaxed.ruby.style/rubocop.yml
 
@@ -10,7 +11,9 @@ require:
 AllCops:
   Exclude:
     - bin/*
+    - db/schema.rb
     - spec/dummy/**/*
+    - vendor/**/*
   NewCops: enable
 
 Gemspec/RequiredRubyVersion:
