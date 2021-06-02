@@ -1,7 +1,9 @@
 ---
 exclude_paths:
-  - spec/dummy
-  - vendor
+  - bin/*
+  - db/schema.rb
+  - spec/dummy/**/*
+  - vendor/**/*
 
 detectors:
   IrresponsibleModule:

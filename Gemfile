@@ -4,16 +4,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-# Linters
-gem 'brakeman'
-gem 'fasterer'
-gem 'reek'
-gem 'rubocop'
-gem 'rubocop-packaging'
-gem 'rubocop-performance'
-gem 'rubocop-rails'
-gem 'rubocop-rspec'
-
 group :development, :test do
   gem 'activestorage', '~> 6.0'
   gem 'capybara', '~> 3.33'
@@ -24,5 +14,16 @@ group :development, :test do
   gem 'sprockets-rails', '~> 3.2'
   gem 'sqlite3', '~> 1.4'
 
+  # Linters
+  gem 'brakeman'
+  gem 'fasterer'
+  gem 'reek'
+  gem 'rubocop'
+  gem 'rubocop-packaging'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+
+  # Tools
   gem 'pry-rails'
 end
