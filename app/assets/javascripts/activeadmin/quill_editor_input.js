@@ -40,6 +40,11 @@
         // Init editor
         editors[i]['_quill-editor'] = new Quill(content, options)
         editors[i].classList += ' quill-editor--active'
+
+        // Setup quilljs-markdown
+        if (plugin_options.markdown) {
+          new QuillMarkdown(editors[i]['_quill-editor'], plugin_options.markdown)
+        }
       }
     }
 

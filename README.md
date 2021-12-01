@@ -92,6 +92,39 @@ Consider that this is just a basic example: images are uploaded as soon as they 
 the *upload_admin_post_path*) and it doesn't provide a way to remove images (just deleting them from
 the editor will not destroy them, you'll need to implement a purge logic for that).
 
+### Markdown plugin
+
+This plugin supports markdown syntax, reference [here](https://github.com/cloverhearts/quilljs-markdown).
+
+- Add at the end of your Active Admin styles (_app/assets/stylesheets/active_admin.scss_):
+```scss
+@import 'activeadmin/quill.markdown.min';
+```
+- Add at the end of your Active Admin javascripts (_app/assets/javascripts/active_admin.js_):
+```js
+//= require activeadmin/quill.markdown.min
+```
+
+- Add plugin options for markdown syntax
+```ruby
+plugin_opts = { 
+  markdown: {
+    # ignoreTags: [ 'pre', 'strikethrough'], // @option - if you need to ignore some tags.
+    # tags: { // @option if you need to change for trigger pattern for some tags. 
+    #   blockquote: {
+    #     pattern: /^(\|){1,6}\s/g,
+    #   },
+    #   bold: {
+    #     pattern:  /^(\|){1,6}\s/g,
+    #   },
+    #   italic: {
+    #     pattern: /(\_){1}(.+?)(?:\1){1}/g,
+    #   },
+  } 
+}
+f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
+```
+
 ## Do you like it? Star it!
 
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest. My other [Active Admin components](https://github.com/blocknotes?utf8=✓&tab=repositories&q=activeadmin&type=source).
