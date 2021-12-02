@@ -41,19 +41,7 @@ ActiveAdmin.register Post do
       f.input :author
       f.input :title
       plugin_opts = { 
-        markdown: {
-          # ignoreTags: [ 'pre', 'strikethrough'], // @option - if you need to ignore some tags.
-          # tags: { // @option if you need to change for trigger pattern for some tags. 
-          #   blockquote: {
-          #     pattern: /^(\|){1,6}\s/g,
-          #   },
-          #   bold: {
-          #     pattern:  /^(\|){1,6}\s/g,
-          #   },
-          #   italic: {
-          #     pattern: /(\_){1}(.+?)(?:\1){1}/g,
-          #   },
-        } 
+        markdown: true
       }
       f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
       f.input :category
