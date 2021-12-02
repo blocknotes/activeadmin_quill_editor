@@ -105,21 +105,31 @@ This plugin supports markdown syntax, reference [here](https://github.com/clover
 //= require activeadmin/quill.markdown.min
 ```
 
-- Add plugin options for markdown syntax
+- Add plugin options for markdown syntax:
+```ruby
+plugin_opts = { 
+  markdown: true
+}
+f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
+```
+
+[quilljs-markdown](https://cloverhearts.github.io/quilljs-markdown/) options are available.
+
 ```ruby
 plugin_opts = { 
   markdown: {
-    # ignoreTags: [ 'pre', 'strikethrough'], // @option - if you need to ignore some tags.
-    # tags: { // @option if you need to change for trigger pattern for some tags. 
-    #   blockquote: {
-    #     pattern: /^(\|){1,6}\s/g,
-    #   },
-    #   bold: {
-    #     pattern:  /^(\|){1,6}\s/g,
-    #   },
-    #   italic: {
-    #     pattern: /(\_){1}(.+?)(?:\1){1}/g,
-    #   },
+    ignoreTags: [ 'pre', 'strikethrough'], # if you need to ignore some tags.
+    tags: { # if you need to change for trigger pattern for some tags.
+      blockquote: {
+        pattern: "/^(\|){1,6}\s/g",
+      },
+      bold: {
+        pattern:  "/^(\|){1,6}\s/g",
+      },
+      italic: {
+        pattern: "/(\_){1}(.+?)(?:\1){1}/g",
+      },
+    }
   } 
 }
 f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
