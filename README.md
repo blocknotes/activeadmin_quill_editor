@@ -16,6 +16,7 @@ After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_edit
 
 If you installed Active Admin without Webpacker support (default for now):
 
+- Add a SASS/SCSS gem to your Gemfile (ex. `gem 'sassc'`)
 - Add at the end of your Active Admin styles (_app/assets/stylesheets/active_admin.scss_):
 ```scss
 @import 'activeadmin/quill_editor/quill.snow';

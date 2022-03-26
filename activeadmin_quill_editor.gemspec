@@ -18,5 +18,4 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activeadmin', '~> 2.0'
-  spec.add_runtime_dependency 'sassc', '~> 2.4'
 end
