@@ -1,9 +1,12 @@
 # ActiveAdmin Quill Editor
-[![gem version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor) [![gem downloads](https://badgen.net/rubygems/dt/activeadmin_quill_editor)](https://rubygems.org/gems/activeadmin_quill_editor) [![Linters](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml) [![specs](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml)
+[![gem version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor)
+[![gem downloads](https://badgen.net/rubygems/dt/activeadmin_quill_editor)](https://rubygems.org/gems/activeadmin_quill_editor)
+[![Linters](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml)
+[![specs](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs.yml)
 
 An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quilljs/quill) in form fields.
 
-![screenshot](screenshot.png)
+![screenshot](extra/screenshot.png)
 
 Please :star: if you like it.
 
