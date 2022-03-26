@@ -12,6 +12,7 @@ AllCops:
   Exclude:
     - bin/*
     - db/schema.rb
+    - gemfiles/**/*
     - spec/dummy/**/*
     - vendor/**/*
   NewCops: enable

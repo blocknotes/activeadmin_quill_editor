@@ -5,12 +5,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'activestorage', '~> 6.0'
-  gem 'puma', '~> 4.3'
-  gem 'sassc', '~> 2.4'
-  gem 'sprockets-rails', '~> 3.2'
-  gem 'sqlite3', '~> 1.4'
-
   # Testing
   gem 'capybara'
   gem 'rspec_junit_formatter'
