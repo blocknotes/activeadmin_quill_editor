@@ -5,11 +5,15 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
+  gem 'puma'
+  gem 'sassc'
+  gem 'sqlite3'
+
   # Testing
   gem 'capybara'
+  gem 'cuprite'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'selenium-webdriver'
 
   # Linters
   gem 'brakeman'

@@ -8,11 +8,13 @@ end
 appraise 'rails60-activeadmin22' do
   gem 'activeadmin', '~> 2.2.0'
   gem 'rails', '~> 6.0.0'
+  gem 'selenium-webdriver', require: false
 end
 
 appraise 'rails60-activeadmin' do
   gem 'activeadmin'
   gem 'rails', '~> 6.0.0'
+  gem 'selenium-webdriver', require: false
 end
 
 appraise 'rails61-activeadmin29' do
