@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "activeadmin"
-gem "rails", "~> 6.1.0"
+gem "rails", "~> 7.0.0"
 gem "sprockets-rails"
 
 group :development, :test do

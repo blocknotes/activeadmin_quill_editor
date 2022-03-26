@@ -1,5 +1,5 @@
 ---
-name: Specs Rails 6.0
+name: Specs Rails 7.0
 
 on:
   push:
@@ -15,8 +15,8 @@ jobs:
 
     strategy:
       matrix:
-        ruby: ['2.6', '2.7']
-        gemfile: ['rails60_activeadmin22', 'rails60_activeadmin']
+        ruby: ['2.7', '3.0']
+        gemfile: ['rails70_activeadmin']
 
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
