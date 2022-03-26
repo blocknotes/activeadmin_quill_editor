@@ -85,7 +85,6 @@ GEM
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
     ast (2.4.2)
-    brakeman (5.2.1)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -146,7 +145,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kwalify (0.7.2)
     loofah (2.15.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -209,10 +207,6 @@ GEM
       activerecord (>= 6.0.4)
       activesupport (>= 6.0.4)
       i18n
-    reek (6.1.0)
-      kwalify (~> 0.7.0)
-      parser (~> 3.1.0)
-      rainbow (>= 2.0, < 4.0)
     regexp_parser (2.2.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -293,14 +287,12 @@ DEPENDENCIES
   activeadmin (~> 2.9.0)
   activeadmin_quill_editor!
   appraisal (~> 2.4)
-  brakeman
   capybara
   cuprite
   fasterer
   pry-rails
   puma
   rails (~> 6.1.0)
-  reek
   rspec-rails
   rspec_junit_formatter
   rubocop

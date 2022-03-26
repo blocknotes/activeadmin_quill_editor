@@ -16,9 +16,7 @@ group :development, :test do
   gem 'rspec-rails'
 
   # Linters
-  gem 'brakeman'
   gem 'fasterer'
-  gem 'reek'
   gem 'rubocop'
   gem 'rubocop-packaging'
   gem 'rubocop-performance'

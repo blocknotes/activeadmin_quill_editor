@@ -75,7 +75,6 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    brakeman (5.2.1)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -137,7 +136,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kwalify (0.7.2)
     loofah (2.15.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -201,10 +199,6 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    reek (6.1.0)
-      kwalify (~> 0.7.0)
-      parser (~> 3.1.0)
-      rainbow (>= 2.0, < 4.0)
     regexp_parser (2.2.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -294,14 +288,12 @@ DEPENDENCIES
   activeadmin (~> 2.0.0)
   activeadmin_quill_editor!
   appraisal (~> 2.4)
-  brakeman
   capybara
   cuprite
   fasterer
   pry-rails
   puma
   rails (~> 5.2.0)
-  reek
   rspec-rails
   rspec_junit_formatter
   rubocop
