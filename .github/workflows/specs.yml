@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: ['2.5', '2.6', '2.7']
+        ruby: ['2.6', '2.7']
 
     steps:
       - name: Checkout
