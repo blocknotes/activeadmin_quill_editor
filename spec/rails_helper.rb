@@ -10,6 +10,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rails'
+require 'rspec/retry'
 
 Dir[File.expand_path('support/**/*.rb', __dir__)].sort.each { |f| require f }
 
@@ -33,6 +34,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.use_instantiated_fixtures = false
   config.render_views = false
+
+  config.default_retry_count = 2
 
   config.before(:suite) do
     intro = ('-' * 80)

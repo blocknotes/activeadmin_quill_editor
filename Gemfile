@@ -14,6 +14,7 @@ group :development, :test do
   gem 'cuprite'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
+  gem 'rspec-retry'
 
   # Linters
   gem 'fasterer'
