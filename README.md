@@ -2,7 +2,6 @@
 [![gem version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor)
 [![gem downloads](https://badgen.net/rubygems/dt/activeadmin_quill_editor)](https://rubygems.org/gems/activeadmin_quill_editor)
 [![linters](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml)
-[![specs Rails 6.0](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails60.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails60.yml)
 [![specs Rails 6.1](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails61.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails61.yml)
 [![specs Rails 7.0](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails70.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails70.yml)
 
@@ -97,6 +96,10 @@ Consider that this is just a basic example: images are uploaded as soon as they 
  editor (regardless of the form submit), it shows the editor only for an existing record (because of
 the *upload_admin_post_path*) and it doesn't provide a way to remove images (just deleting them from
 the editor will not destroy them, you'll need to implement a purge logic for that).
+
+## Changelog
+
+The changelog is available [here](CHANGELOG.md).
 
 ## Do you like it? Star it!
 
