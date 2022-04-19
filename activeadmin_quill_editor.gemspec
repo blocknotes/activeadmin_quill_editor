@@ -14,9 +14,18 @@ Gem::Specification.new do |spec|
   spec.email         = 'mat@blocknot.es'
   spec.homepage      = 'https://github.com/blocknotes/activeadmin_quill_editor'
 
+  spec.required_ruby_version = '>= 2.6.0'
+
+  spec.metadata['homepage_uri']    = spec.homepage
+  spec.metadata['changelog_uri']   = 'https://github.com/blocknotes/activeadmin_quill_editor/blob/master/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = spec.homepage
+
+  spec.metadata['rubygems_mfa_required'] = 'true'
+
   spec.files         = Dir['{app,lib}/**/*', 'LICENSE.txt', 'Rakefile', 'README.md']
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activeadmin', '~> 2.0'
-  spec.add_runtime_dependency 'sassc', '~> 2.4'
+
+  spec.add_development_dependency 'appraisal', '~> 2.4'
 end

@@ -12,19 +12,10 @@ AllCops:
   Exclude:
     - bin/*
     - db/schema.rb
+    - gemfiles/**/*
     - spec/dummy/**/*
     - vendor/**/*
   NewCops: enable
-
-Gemspec/RequiredRubyVersion:
-  Enabled: false
-
-Naming/FileName:
-  Enabled: false
-
-Layout/LineLength:
-  Enabled: true
-  Max: 120
 
 RSpec/ExampleLength:
   # default 5
@@ -33,12 +24,3 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   # default 1
   Max: 4
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
