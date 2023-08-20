@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "activeadmin"
+gem "psych", "~> 3.0"
 gem "rails", "~> 6.0.0"
 gem "selenium-webdriver", require: false
 

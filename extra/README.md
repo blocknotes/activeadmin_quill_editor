@@ -12,8 +12,8 @@ bin/appraisal
 
 ```sh
 # Running specs using a specific configuration:
-bin/appraisal rails60-activeadmin22 rspec
+bin/appraisal rails61-activeadmin29 rspec
 # Using latest activeadmin version:
-bin/appraisal rails60-activeadmin rspec
+bin/appraisal rails70-activeadmin rspec
 # See gemfiles for more configurations
 ```

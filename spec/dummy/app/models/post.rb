@@ -26,4 +26,12 @@ class Post < ApplicationRecord
   def upper_title
     title.upcase
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[author_id category created_at description dt id position published summary title updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[author author_profile images_attachments images_blobs post_tags tags]
+  end
 end
