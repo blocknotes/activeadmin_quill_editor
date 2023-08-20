@@ -2,6 +2,11 @@
 
 An Active Admin plugin to use Quill Rich Text Editor.
 
+## v1.1.0 - 2023-08-20
+
+- Support ActiveAdmin 3.x
+- Minor tests config improvements
+
 ## v1.0.0 - 2022-04-18
 
 - Set minimum Ruby version to 2.6.0
