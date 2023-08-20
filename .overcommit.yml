@@ -1,0 +1,13 @@
+CommitMsg:
+  CapitalizedSubject:
+    enabled: false
+
+  MessageFormat:
+    enabled: true
+    pattern: "^(fixup! ){0,1}(fix|feat|build|chore|ci|docs|style|refactor|perf|test)[!]{0,1}: .+$"
+    expected_pattern_message: "<Commit type>: <Commit Message>"
+    sample_message: "chore: add Overcommit config"
+
+  TextWidth:
+    enabled: true
+    max_subject_width: 72
