@@ -2,7 +2,7 @@ PATH
   remote: ..
   specs:
     activeadmin_quill_editor (1.0.0)
-      activeadmin (~> 2.0)
+      activeadmin (>= 2.0, < 4)
 
 GEM
   remote: https://rubygems.org/
