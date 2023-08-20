@@ -23,4 +23,8 @@ class Author < ApplicationRecord
   def to_s
     "#{name} (#{age})"
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[age created_at email id name updated_at]
+  end
 end

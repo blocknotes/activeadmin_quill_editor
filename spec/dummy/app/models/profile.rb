@@ -6,4 +6,8 @@ class Profile < ApplicationRecord
   def to_s
     description
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[author_id created_at description id updated_at]
+  end
 end
