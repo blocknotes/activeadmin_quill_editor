@@ -1,5 +1,7 @@
 # Development
 
+Overcommit can be used to ensure that Conventional commits are good.
+
 ## Releases
 
 ```sh
