@@ -13,6 +13,8 @@ Please :star: if you like it.
 
 ## Install
 
+_NOTE_: Ruby 2.7 is supported until version 1.1.0
+
 After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
 
 If you installed Active Admin without Webpacker support (default for now):
