@@ -4,10 +4,10 @@ name: Specs Rails 6.1
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   tests:
