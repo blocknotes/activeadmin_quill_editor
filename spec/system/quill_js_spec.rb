@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Quill JS', type: :system do
+RSpec.describe 'Quill JS' do
   it 'has a Javascript function defined and returns the version', :aggregate_failures do
     visit '/admin/posts'
 

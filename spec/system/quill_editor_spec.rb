@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Quill editor', type: :system do
+RSpec.describe 'Quill editor' do
   let(:author) { Author.create!(email: 'some_email@example.com', name: 'John Doe', age: 30) }
   let!(:post) { Post.create!(title: 'Test', author: author, description: 'Some content...') }
 
