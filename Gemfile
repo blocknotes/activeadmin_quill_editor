@@ -7,6 +7,7 @@ gemspec
 group :development, :test do
   gem 'puma'
   gem 'sassc'
+  gem 'sprockets-rails'
   gem 'sqlite3'
 
   # Testing

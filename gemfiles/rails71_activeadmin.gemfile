@@ -4,11 +4,11 @@ source "https://rubygems.org"
 
 gem "activeadmin"
 gem "rails", "~> 7.1.0"
-gem "sprockets-rails"
 
 group :development, :test do
   gem "puma"
   gem "sassc"
+  gem "sprockets-rails"
   gem "sqlite3"
   gem "capybara"
   gem "cuprite"

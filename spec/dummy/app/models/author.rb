@@ -24,7 +24,9 @@ class Author < ApplicationRecord
     "#{name} (#{age})"
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    %w[age created_at email id name updated_at]
+  class << self
+    def ransackable_attributes(_auth_object = nil)
+      %w[age created_at email id name updated_at]
+    end
   end
 end
