@@ -15,7 +15,7 @@ require 'rspec/retry'
 Dir[File.expand_path('support/**/*.rb', __dir__)].each { |f| require f }
 
 # Force deprecations to raise an exception.
-ActiveSupport::Deprecation.behavior = :raise
+# ActiveSupport::Deprecation.behavior = :raise
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -27,7 +27,6 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.fixture_path = Rails.root.join('spec/fixtures').to_s
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 

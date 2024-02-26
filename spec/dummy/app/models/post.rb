@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  enum state: %i[available unavailable arriving]
+  # enum state: %i[available unavailable arriving]
 
   belongs_to :author, inverse_of: :posts, autosave: true
 
@@ -27,11 +27,13 @@ class Post < ApplicationRecord
     title.upcase
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    %w[author_id category created_at description dt id position published summary title updated_at]
-  end
+  class << self
+    def ransackable_attributes(auth_object = nil)
+      %w[author_id category created_at description dt id position published summary title updated_at]
+    end
 
-  def self.ransackable_associations(auth_object = nil)
-    %w[author author_profile images_attachments images_blobs post_tags tags]
+    def ransackable_associations(auth_object = nil)
+      %w[author author_profile images_attachments images_blobs post_tags tags]
+    end
   end
 end

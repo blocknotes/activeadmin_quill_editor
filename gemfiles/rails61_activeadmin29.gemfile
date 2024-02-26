@@ -8,6 +8,7 @@ gem "rails", "~> 6.1.0"
 group :development, :test do
   gem "puma"
   gem "sassc"
+  gem "sprockets-rails"
   gem "sqlite3"
   gem "capybara"
   gem "cuprite"
