@@ -50,6 +50,8 @@ In your Active Admin models, form configuration, set the text inputs with `as: :
 
 **data-options**: permits to set *quill editor* options directly - see [options list](https://quilljs.com/docs/configuration/)
 
+If you are using Action Text (`has_rich_text`) on the same field of the Quill editor please take a look at [this workaround](https://github.com/blocknotes/activeadmin_quill_editor/issues/33#issuecomment-1965996947) to avoid issues.
+
 ## Examples
 
 ### Basic usage
