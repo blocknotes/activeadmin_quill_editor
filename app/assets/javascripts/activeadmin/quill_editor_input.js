@@ -73,6 +73,9 @@
             method: 'POST'
           }).then(response => response.json())
             .then(result => {
+              if (!result.url) {
+                reject('Upload failed')
+              }
               resolve(result.url);
             })
             .catch(error => {
