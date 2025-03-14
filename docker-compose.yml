@@ -4,9 +4,14 @@ services:
     build:
       context: .
       dockerfile: ./extra/Dockerfile
+      # dockerfile: ./extra/Dockerfile_alpine
       args:
-        RUBY_VERSION: 3.3.6
+        # Debian-based Ruby image:
+        RUBY_IMAGE: ruby:3.4-slim
         UID: ${UID}
+    environment:
+      ACTIVEADMIN_VERSION: ~> 3.3
+      RAILS_VERSION: ~> 8.0
     user: "${UID}:${GID}"
     ports:
       - '3000:3000'
