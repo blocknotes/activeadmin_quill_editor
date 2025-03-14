@@ -101,20 +101,32 @@ Consider that this is just a basic example: images are uploaded as soon as they 
 the *upload_admin_post_path*) and it doesn't provide a way to remove images (just deleting them from
 the editor will not destroy them, you'll need to implement a purge logic for that).
 
-## Changelog
+## Development
 
-The changelog is available [here](CHANGELOG.md).
+Project created by [Mattia Roccoberton](http://blocknot.es), thanks also to the good guys that opened issues and pull requests from time to time.
+
+A Docker dev setup is provided if you like to work with it:
+
+```sh
+# Run rails server on the dummy app (=> http://localhost:3000 to access to ActiveAdmin):
+make up
+# Enter in a console of the dummy app after it has been started:
+make console
+# Enter in a shell of the dummy app after it has been started:
+make shell
+# Run the linter on the project:
+make lint
+# Remove container and image after stopping the app:
+make cleanup
+```
+
+For more commands please check the [Makefile](Makefile).
 
 ## Do you like it? Star it!
 
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest. My other [Active Admin components](https://github.com/blocknotes?utf8=✓&tab=repositories&q=activeadmin&type=source).
 
 Or consider offering me a coffee, it's a small thing but it is greatly appreciated: [about me](https://www.blocknot.es/about-me).
-
-## Contributors
-
-- [Mattia Roccoberton](http://blocknot.es): author
-- The good guys that opened issues and pull requests from time to time
 
 ## License
 

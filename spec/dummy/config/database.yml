@@ -3,6 +3,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+development:
+  <<: *default
+  database: db/development.sqlite3
+  schema_dump: schema_development.rb
+
 test:
   <<: *default
   database: db/test.sqlite3

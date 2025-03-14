@@ -1,0 +1,20 @@
+services:
+  app:
+    container_name: 'activeadmin_quill_editor_app'
+    build:
+      context: .
+      dockerfile: ./extra/Dockerfile
+      args:
+        RUBY_VERSION: 3.3.6
+        UID: ${UID}
+    user: "${UID}:${GID}"
+    ports:
+      - '3000:3000'
+    working_dir: '/app'
+    volumes:
+      - '.:/app'
+    stdin_open: true
+    tty: true
+    entrypoint:
+      - /bin/sh
+      - ./extra/entrypoint.sh

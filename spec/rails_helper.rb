@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require_relative 'spec_helper'
 
 ENV['RAILS_ENV'] = 'test'
 
@@ -12,7 +12,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'rspec/retry'
 
-Dir[File.expand_path('support/**/*.rb', __dir__)].each { |f| require f }
+Dir[File.expand_path('support/**/*.rb', __dir__)].each { |f| require_relative f }
 
 # Force deprecations to raise an exception.
 # ActiveSupport::Deprecation.behavior = :raise
