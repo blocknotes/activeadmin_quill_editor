@@ -120,6 +120,8 @@ make lint
 make cleanup
 ```
 
+If you need to try different versions of Ruby/Rails/ActiveAdmin check [docker-compose.yml](docker-compose.yml).
+
 For more commands please check the [Makefile](Makefile).
 
 ## Do you like it? Star it!
