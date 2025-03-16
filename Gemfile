@@ -38,10 +38,12 @@ gem 'rspec-retry'
 # Linters
 gem 'fasterer'
 gem 'rubocop'
+gem 'rubocop-capybara'
 gem 'rubocop-packaging'
 gem 'rubocop-performance'
 gem 'rubocop-rails'
 gem 'rubocop-rspec'
+gem 'rubocop-rspec_rails'
 
 # Tools
 gem 'pry-rails'

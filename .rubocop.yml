@@ -2,11 +2,15 @@
 inherit_from:
   - https://relaxed.ruby.style/rubocop.yml
 
-require:
-  - rubocop-packaging
+plugins:
+  - rubocop-capybara
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
+
+require:
+  - rubocop-packaging
 
 AllCops:
   Exclude:
