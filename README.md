@@ -105,22 +105,50 @@ the editor will not destroy them, you'll need to implement a purge logic for tha
 
 Project created by [Mattia Roccoberton](http://blocknot.es), thanks also to the good guys that opened issues and pull requests from time to time.
 
-A Docker dev setup is provided if you like to work with it:
+There 3 ways to interact with this project:
+
+1) Using Docker:
 
 ```sh
 # Run rails server on the dummy app (=> http://localhost:3000 to access to ActiveAdmin):
 make up
-# Enter in a console of the dummy app after it has been started:
+# Enter in a Rails console (with the dummy app started):
 make console
-# Enter in a shell of the dummy app after it has been started:
+# Enter in a shell (with the dummy app started):
 make shell
-# Run the linter on the project:
+# Run the linter on the project (with the dummy app started):
 make lint
-# Remove container and image after stopping the app:
+# Run the test suite (with the dummy app started):
+make specs
+# Remove container and image:
 make cleanup
+# To try different versions of Ruby/Rails/ActiveAdmin edit docker-compose.yml
+# For more commands please check the Makefile
 ```
 
-For more commands please check the [Makefile](Makefile).
+2) Using Appraisal:
+
+```sh
+export RAILS_ENV=development
+# Install dependencies
+bin/appraisal
+# Run server (or any command)
+bin/appraisal rails s
+# Or with specific versions
+bin/appraisal rails71-activeadmin rails s
+```
+
+3) With a local setup:
+
+```sh
+# Dev setup (set the required envs)
+source extra/dev_setup.sh
+# Install dependencies
+bundle
+# Run server (or any command)
+bin/rails s
+# To try different versions of Rails/ActiveAdmin edit extra/dev_setup.sh
+```
 
 ## Do you like it? Star it!
 
