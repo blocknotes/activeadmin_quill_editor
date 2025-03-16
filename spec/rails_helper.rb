@@ -12,7 +12,8 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'rspec/retry'
 
-Dir[File.expand_path('support/**/*.rb', __dir__)].each { |f| require_relative f }
+Rails.root.glob("../support/**/*.rb").each { |f| require_relative f }
+Rails.root.glob("../page_objects/**/*.rb").each { |f| require_relative f }
 
 # Force deprecations to raise an exception.
 # ActiveSupport::Deprecation.behavior = :raise
