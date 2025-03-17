@@ -23,6 +23,6 @@ gem "rubocop-rspec"
 gem "rubocop-rspec_rails"
 gem "pry-rails"
 gem "activeadmin"
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.2.0"
 
 gemspec path: "../"
