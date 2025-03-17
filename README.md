@@ -2,8 +2,12 @@
 [![gem version](https://badge.fury.io/rb/activeadmin_quill_editor.svg)](https://badge.fury.io/rb/activeadmin_quill_editor)
 [![gem downloads](https://badgen.net/rubygems/dt/activeadmin_quill_editor)](https://rubygems.org/gems/activeadmin_quill_editor)
 [![linters](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/linters.yml)
+
 [![specs Rails 6.1](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails61.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails61.yml)
 [![specs Rails 7.0](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails70.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails70.yml)
+[![Specs Rails 7.1](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails71.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails71.yml)
+[![Specs Rails 7.2](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails72.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails72.yml)
+[![Specs Rails 8.0](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails80.yml/badge.svg)](https://github.com/blocknotes/activeadmin_quill_editor/actions/workflows/specs_rails80.yml)
 
 An Active Admin plugin to use [Quill Rich Text Editor](https://github.com/quilljs/quill) in form fields.
 
