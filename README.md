@@ -105,6 +105,14 @@ Consider that this is just a basic example: images are uploaded as soon as they 
 the *upload_admin_post_path*) and it doesn't provide a way to remove images (just deleting them from
 the editor will not destroy them, you'll need to implement a purge logic for that).
 
+## Javascript API
+
+Some methods are provided for advanced use cases:
+
+- `window.getQuillEditors()`: returns all the available Quill editors instances;
+- `window.getQuillEditorByIndex(n)`: returns the N-th Quill editor instance;
+- `window.getQuillEditorByElementId(id)`: returns the Quill editor instance related to the specified element id (e.g. _article_description_).
+
 ## Development
 
 Project created by [Mattia Roccoberton](http://blocknot.es), thanks also to the good guys that opened issues and pull requests from time to time.
