@@ -1,0 +1,42 @@
+---
+name: Specs Rails 7.2
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby: ['3.2', '3.4']
+        gemfile: ['rails72_activeadmin']
+
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rspec --profile
+
+      - name: On failure, archive screenshots as artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-failed-screenshots
+          path: spec/dummy/tmp/screenshots

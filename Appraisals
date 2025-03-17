@@ -19,3 +19,8 @@ appraise 'rails71-activeadmin' do
   gem 'activeadmin'
   gem 'rails', '~> 7.1.0'
 end
+
+appraise 'rails72-activeadmin' do
+  gem 'activeadmin'
+  gem 'rails', '~> 7.2.0'
+end
