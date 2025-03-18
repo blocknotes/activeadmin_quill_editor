@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 (function () {
   'use strict'
 
@@ -85,6 +86,27 @@
         })
       }
     }
+  }
+
+  // --- public functions --------------------------------------------------------
+  window.getQuillEditors = function() {
+    const editors = document.querySelectorAll('[data-aa-quill-editor]')
+    let list = []
+
+    editors.forEach(function(editor) { list.push(editor['_quill-editor']) })
+    return list
+  }
+
+  window.getQuillEditorByIndex = function(index) {
+    const editors = document.querySelectorAll('[data-aa-quill-editor]')
+
+    return (index >= 0 && index < editors.length) ? editors[index]['_quill-editor'] : null
+  }
+
+  window.getQuillEditorByElementId = function(id) {
+    const editor = document.querySelector(`[data-aa-quill-editor]#${id}`)
+
+    return editor ? editor['_quill-editor'] : null
   }
 
   // --- events ------------------------------------------------------------------
