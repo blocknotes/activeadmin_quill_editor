@@ -13,6 +13,8 @@ end
 appraise 'rails70-activeadmin' do
   gem 'activeadmin'
   gem 'rails', '~> 7.0.0'
+
+  gem 'sqlite3', '~> 1.3'
 end
 
 appraise 'rails71-activeadmin' do
