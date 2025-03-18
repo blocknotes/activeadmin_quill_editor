@@ -2,6 +2,15 @@
 
 An Active Admin plugin to use Quill Rich Text Editor.
 
+## v1.3.0 - 2025-03-18
+
+- Javascript API: expose Quill editor query functions
+- ImageUploader: reject the Promise if an url is not provided in the response
+
+## v1.2.0 - 2024-02-29
+
+- Update minimum supported Ruby version to 3.0
+
 ## v1.1.0 - 2023-08-20
 
 - Support ActiveAdmin 3.x
