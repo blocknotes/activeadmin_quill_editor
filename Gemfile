@@ -34,6 +34,7 @@ gem 'cuprite'
 gem 'rspec_junit_formatter'
 gem 'rspec-rails'
 gem 'rspec-retry'
+gem 'simplecov', require: false
 
 # Linters
 gem 'fasterer'
