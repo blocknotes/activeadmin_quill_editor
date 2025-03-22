@@ -110,6 +110,7 @@ GEM
       ferrum (~> 0.14.0)
     date (3.3.4)
     diff-lcs (1.5.1)
+    docile (1.4.1)
     erubi (1.12.0)
     fasterer (0.11.0)
       ruby_parser (>= 3.19.1)
@@ -297,6 +298,12 @@ GEM
     sassc (2.4.0)
       ffi (~> 1.9)
     sexp_processor (4.17.1)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -347,8 +354,9 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-rspec_rails
   sassc
+  simplecov
   sprockets-rails
-  sqlite3
+  sqlite3 (~> 1.3)
 
 BUNDLED WITH
    2.3.8
