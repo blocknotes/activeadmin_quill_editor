@@ -12,6 +12,13 @@ jobs:
     name: reviewdog
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        ruby: ['3.0']
+
+    env:
+      RUBY_VERSION: ${{ matrix.ruby }}
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -19,8 +26,8 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
 
       - uses: reviewdog/action-setup@v1
         with:
