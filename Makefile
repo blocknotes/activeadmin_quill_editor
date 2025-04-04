@@ -1,38 +1,36 @@
+include extra/.env
+
 help:
-	@echo "Main targets: up / down / console / shell"
+	@echo "Main targets: build / specs / up / server / specs / shell"
 
-# Docker commands
-down:
-	docker compose down
+# System commands
 
-up:
-	docker compose up
+build:
+	@rm -f Gemfile.lock spec/dummy/db/*.sqlite3
+	@docker compose -f extra/docker-compose.yml build
 
-attach:
-	docker compose attach app
+db_reset:
+	@docker compose -f extra/docker-compose.yml run --rm app bin/rails db:reset db:test:prepare
 
-up_attach:
-	docker compose up -d && docker compose attach app
-
-cleanup:
-	docker container rm -f activeadmin_quill_editor_app && docker image rm -f activeadmin_quill_editor-app
-
-# Rails specific commands
-console:
-	docker compose exec -e "PAGER=more" app bin/rails console
-
-routes:
-	docker compose exec app bin/rails routes
-
-specs:
-	docker compose exec app bin/rspec --fail-fast
-
-# Other commands
-bundle:
-	docker compose exec app bundle
+up: build db_reset
+	@docker compose -f extra/docker-compose.yml up
 
 shell:
-	docker compose exec -e "PAGER=more" app bash
+	@docker compose -f extra/docker-compose.yml exec app bash
+
+down:
+	@docker compose -f extra/docker-compose.yml down --volumes --rmi local --remove-orphans
+
+# App commands
+
+console:
+	@docker compose -f extra/docker-compose.yml exec app bin/rails console
 
 lint:
-	docker compose exec app bin/rubocop
+	@docker compose -f extra/docker-compose.yml exec app bin/rubocop
+
+server:
+	@docker compose -f extra/docker-compose.yml exec app bin/rails server -b 0.0.0.0 -p ${SERVER_PORT}
+
+specs:
+	@docker compose -f extra/docker-compose.yml exec app bin/rspec --fail-fast
