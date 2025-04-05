@@ -15,11 +15,10 @@ jobs:
 
     strategy:
       matrix:
-        ruby: ['3.2']
-        gemfile: ['rails61_activeadmin29', 'rails61_activeadmin']
+        ruby: ['3.0', '3.1']
 
     env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+      RAILS_VERSION: 6.1.0
 
     steps:
       - name: Checkout repository

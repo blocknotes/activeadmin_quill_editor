@@ -4,13 +4,11 @@ inherit_from:
 
 plugins:
   - rubocop-capybara
+  - rubocop-packaging
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
-
-require:
-  - rubocop-packaging
 
 AllCops:
   Exclude:

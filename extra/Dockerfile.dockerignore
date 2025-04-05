@@ -1,0 +1,6 @@
+# Ignore everything but the required files for bundle install
+/**/*
+
+!/*.gemspec
+!/Gemfile
+!/lib

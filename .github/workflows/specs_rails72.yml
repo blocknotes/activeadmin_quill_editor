@@ -16,10 +16,9 @@ jobs:
     strategy:
       matrix:
         ruby: ['3.2', '3.4']
-        gemfile: ['rails72_activeadmin']
 
     env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+      RAILS_VERSION: 7.2.0
 
     steps:
       - name: Checkout repository

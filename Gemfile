@@ -3,27 +3,32 @@
 source 'https://rubygems.org'
 
 if ENV['DEVEL'] == '1'
-  # for Docker dev
-  rails_ver = ENV.fetch('RAILS_VERSION')
-  gem 'rails', rails_ver
-
-  gem 'activeadmin', ENV.fetch('ACTIVEADMIN_VERSION')
   gem 'activeadmin_quill_editor', path: './'
-  gem 'appraisal', '~> 2.4'
-
-  if rails_ver.start_with?('7.0')
-    gem 'concurrent-ruby', '1.3.4'
-    gem 'sqlite3', '~> 1.4'
-  else
-    gem 'sqlite3'
-  end
 else
   gemspec
-
-  gem 'sqlite3'
 end
 
+ruby_ver = ENV.fetch('RUBY_VERSION', '')
+rails_ver = ENV.fetch('RAILS_VERSION', '')
+activeadmin_ver = ENV.fetch('ACTIVEADMIN_VERSION', '')
+
+rails = rails_ver.empty? ? ['rails'] : ['rails', "~> #{rails_ver}"]
+gem(*rails)
+
+activeadmin = activeadmin_ver.empty? ? ['activeadmin'] : ['activeadmin', "~> #{activeadmin_ver}"]
+gem(*activeadmin)
+
+ruby32 = Gem::Version.new(ruby_ver) >= Gem::Version.new('3.2')
+rails72 = Gem::Version.new(rails_ver) >= Gem::Version.new('7.2')
+sqlite3 = ruby32 || rails72 ? ['sqlite3'] : ['sqlite3', '~> 1.4']
+gem(*sqlite3)
+
+# NOTE: to avoid error: uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger
+gem 'concurrent-ruby', '1.3.4'
+
+# Misc
 gem 'bigdecimal'
+gem 'csv'
 gem 'mutex_m'
 gem 'puma'
 gem 'sassc'

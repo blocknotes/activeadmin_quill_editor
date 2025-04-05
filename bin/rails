@@ -2,7 +2,7 @@
 # This command will automatically be run when you run "rails" with Rails gems
 # installed from the root of your application.
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] ||= 'development'
 
 ENGINE_ROOT = File.expand_path('..', __dir__)
 ENGINE_PATH = File.expand_path('../lib/activeadmin/quill_editor/engine', __dir__)
