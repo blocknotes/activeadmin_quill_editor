@@ -8,6 +8,7 @@
 /_misc/
 /coverage/
 /spec/dummy/db/*.sqlite3*
+/spec/dummy/db/schema-dev.rb
 /spec/dummy/log/
 /spec/dummy/storage/
 /spec/dummy/tmp/

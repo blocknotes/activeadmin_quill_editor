@@ -26,6 +26,6 @@ ENV ACTIVEADMIN_VERSION=$ACTIVEADMIN_VERSION
 WORKDIR /app
 COPY . /app
 RUN bundle install
-RUN mkdir -p /app/spec/dummy/db && chown -R app:app /app/spec/dummy/db /usr/local/bundle
+RUN chown -R app:app /usr/local/bundle
 
 RUN ln -s /app/extra/.bashrc /home/app/.bashrc

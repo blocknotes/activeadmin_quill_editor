@@ -2,9 +2,9 @@
 
 RSpec.describe 'Quill editor' do
   def lookup_editor(field:)
-    selector = ["##{field}_input.quill_editor", QuillEditor::SELECTOR].join(' ')
-    toolbar_selector = ["##{field}_input.quill_editor", QuillEditor::TOOLBAR_SELECTOR].join(' ')
-    QuillEditor.new(selector: selector, toolbar_selector: toolbar_selector)
+    selector = ["##{field}_input.quill_editor", Shared::QuillEditor::SELECTOR].join(' ')
+    toolbar_selector = ["##{field}_input.quill_editor", Shared::QuillEditor::TOOLBAR_SELECTOR].join(' ')
+    Shared::QuillEditor.new(selector: selector, toolbar_selector: toolbar_selector)
   end
 
   let(:author) { Author.create!(email: 'some_email@example.com', name: 'John Doe', age: 30) }

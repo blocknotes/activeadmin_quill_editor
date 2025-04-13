@@ -9,10 +9,10 @@ Capybara.register_driver(:capybara_cuprite) do |app|
 
   Capybara::Cuprite::Driver.new(
     app,
-    window_size: [1600, 1280],
+    window_size: [1600, 1024],
     browser_options: browser_options,
-    process_timeout: 20,
-    timeout: 20,
+    process_timeout: 30,
+    timeout: 30,
     inspector: true,
     headless: !ENV['CUPRITE_HEADLESS'].in?(%w[n 0 no false])
   )
