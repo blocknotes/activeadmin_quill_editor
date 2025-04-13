@@ -44,7 +44,7 @@ ActiveAdmin.register Post do
       f.input :author
       f.input :title
       f.input :summary, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
-      f.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
+      f.input :description, as: :quill_editor # using default options
       f.input :category
       f.input :dt
       f.input :position

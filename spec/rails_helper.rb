@@ -2,6 +2,11 @@
 
 require_relative 'spec_helper'
 
+require 'zeitwerk'
+loader = Zeitwerk::Loader.new
+loader.push_dir("#{__dir__}/page_objects")
+loader.setup
+
 ENV['RAILS_ENV'] = 'test'
 
 require 'simplecov'
@@ -13,13 +18,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rails'
-require 'rspec/retry'
 
-Rails.root.glob("../support/**/*.rb").each { |f| require_relative f }
-Rails.root.glob("../page_objects/**/*.rb").each { |f| require_relative f }
-
-# Force deprecations to raise an exception.
-# ActiveSupport::Deprecation.behavior = :raise
+Dir[File.expand_path('support/**/*.rb', __dir__)].each { |f| require_relative f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -31,14 +31,18 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
+  if Gem::Version.new(Rails.version) >= Gem::Version.new('7.1')
+    config.fixture_paths = [Rails.root.join('spec/fixtures')]
+  else
+    config.fixture_path = Rails.root.join('spec/fixtures')
+  end
+
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
   config.use_transactional_fixtures = true
   config.use_instantiated_fixtures = false
   config.render_views = false
-
-  config.default_retry_count = 2
 
   config.before(:suite) do
     intro = ('-' * 80)

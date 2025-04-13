@@ -6,7 +6,7 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-  schema_dump: schema_development.rb
+  schema_dump: schema-dev.rb
 
 test:
   <<: *default
