@@ -2,23 +2,21 @@
 name: Specs Rails 7.1
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
 
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        ruby: ['3.2']
+        ruby: ['3.2', '3.4']
 
     env:
-      RAILS_VERSION: 7.1.0
+      RAILS_VERSION: 7.1
 
     steps:
       - name: Checkout repository
@@ -29,6 +27,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+
+      - name: Database setup
+        run: bin/rails db:create db:migrate db:test:prepare
 
       - name: Run tests
         run: bundle exec rspec --profile

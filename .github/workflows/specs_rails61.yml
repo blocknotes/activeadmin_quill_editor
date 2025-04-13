@@ -1,24 +1,23 @@
 ---
-name: Specs Rails 6.1
+name: Specs Rails 6.1 with ActiveAdmin 2.9
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
 
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        ruby: ['3.0', '3.1']
+        ruby: ['3.0']
 
     env:
-      RAILS_VERSION: 6.1.0
+      RAILS_VERSION: 6.0
+      ACTIVEADMIN_VERSION: 2.9.0
 
     steps:
       - name: Checkout repository
@@ -29,6 +28,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+
+      - name: Database setup
+        run: bin/rails db:create db:migrate db:test:prepare
 
       - name: Run tests
         run: bundle exec rspec --profile

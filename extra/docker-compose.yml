@@ -4,10 +4,10 @@ services:
       context: ..
       dockerfile: extra/Dockerfile
       args:
-        ACTIVEADMIN_VERSION: ${ACTIVEADMIN:-}
         BUNDLER_VERSION: ${BUNDLER_VERSION}
-        RAILS_VERSION: ${RAILS:-}
         RUBY_IMAGE: ruby:${RUBY:-3.4}-slim
+        RAILS_VERSION: ${RAILS:-}
+        ACTIVEADMIN_VERSION: ${ACTIVEADMIN:-}
         UID: ${UID}
     user: ${UID}:${GID}
     ports:

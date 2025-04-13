@@ -1,29 +1,21 @@
 ## Development
 
-Overcommit can be used to ensure that Conventional commits are good.
-
 ### Dev setup
 
-There 2 ways to interact with this project:
+There are 2 ways to interact with this project:
 
 1) Using Docker:
 
 ```sh
-# Run rails server on the dummy app (=> http://localhost:3000 to access to ActiveAdmin):
-make up
-# Enter in a Rails console (with the dummy app started):
-make console
-# Enter in a shell (with the dummy app started):
-make shell
-# Run the linter on the project (with the dummy app started):
-make lint
-# Run the test suite (with the dummy app started):
-make specs
-# Remove container and image:
-make cleanup
-# To try different versions of Ruby/Rails/ActiveAdmin:
-RUBY=3.2 RAILS=7.1.0 ACTIVEADMIN=3.2.0 make up
-# For more commands please check the Makefile
+make up         # starts the dev services (optional env vars: RUBY / RAILS / ACTIVEADMIN)
+make specs      # run the tests (after up)
+make lint       # run the linters (after up)
+make server     # run the server (after up)
+make shell      # open a shell (after up)
+make down       # cleanup (after up)
+
+# Example using specific versions:
+RUBY=3.2 RAILS=7.1 ACTIVEADMIN=3.2.0 make up
 ```
 
 2) With a local setup:
