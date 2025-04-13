@@ -48,6 +48,7 @@ gem 'cuprite'
 gem 'rspec_junit_formatter'
 gem 'rspec-rails'
 gem 'simplecov', require: false
+gem 'super_diff'
 
 # Linters
 gem 'fasterer'
