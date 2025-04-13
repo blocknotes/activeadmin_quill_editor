@@ -3,6 +3,6 @@
 module ActiveAdmin
   module QuillEditor
     VERSION = '1.3.0'
-    QUILL_VERSION = '1.3.7'
+    QUILL_VERSION = '2.0.3'
   end
 end

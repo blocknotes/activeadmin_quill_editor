@@ -29,3 +29,18 @@ bundle update
 bin/rails s
 # To try different versions of Rails/ActiveAdmin edit extra/dev_setup.sh
 ```
+
+### Update the editor
+
+- Update the CSS/JS editor assets:
+
+```sh
+wget "https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" -O "app/assets/stylesheets/activeadmin/quill_editor/quill.snow.css"
+wget "https://cdn.jsdelivr.net/npm/quill@2/dist/quill.bubble.css" -O "app/assets/stylesheets/activeadmin/quill_editor/quill.bubble.css"
+wget "https://cdn.jsdelivr.net/npm/quill@2/dist/quill.core.css" -O "app/assets/stylesheets/activeadmin/quill_editor/quill.core.css"
+
+wget "https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js" -O "app/assets/javascripts/activeadmin/quill_editor/quill.js"
+wget "https://cdn.jsdelivr.net/npm/quill@2/dist/quill.core.js" -O "app/assets/javascripts/activeadmin/quill_editor/quill.core.js"
+```
+
+- Check the changes, most of them should be for updated files plus some new / removed file
