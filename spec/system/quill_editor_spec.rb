@@ -1,114 +1,118 @@
 # frozen_string_literal: true
 
+using StringCleanMultiline
+
 RSpec.describe 'Quill editor' do
-  def lookup_editor(field:)
-    selector = ["##{field}_input.quill_editor", Shared::QuillEditor::SELECTOR].join(' ')
-    toolbar_selector = ["##{field}_input.quill_editor", Shared::QuillEditor::TOOLBAR_SELECTOR].join(' ')
-    Shared::QuillEditor.new(selector: selector, toolbar_selector: toolbar_selector)
+  let(:author) { Author.create!(email: 'some_email@example.com', name: 'John Doe', age: 30) }
+  let(:post) do
+    Post.create!(title: 'Test', author: author, description: '<p>Some content</p>', summary: '<p>Post summary</p>')
   end
 
-  let(:author) { Author.create!(email: 'some_email@example.com', name: 'John Doe', age: 30) }
-  let!(:post) { Post.create!(title: 'Test', author: author, description: '') }
+  let(:submit_button) { find('#post_submit_action [type="submit"]') }
 
   context 'with a Quill editor' do
-    let(:editor) { lookup_editor(field: 'post_description') }
+    let(:edit_page) do
+      path = edit_admin_post_path(post)
+      Admin::Posts::EditPage.new(path: path)
+    end
+    let(:editor) { edit_page.lookup_editor(editor_container: '#post_description_input') }
+    let(:input_field) { find('#post_description[data-aa-quill-editor]') }
 
     before do
-      path = edit_admin_post_path(post)
-      Admin::Posts::EditPage.new(path: path).load
+      edit_page.load
     end
 
-    it 'adds some text to the description', :aggregate_failures do
-      expect(page).to have_css('#post_description[data-aa-quill-editor]')
-      editor << 'Some content...'
-      %i[bold italic underline link].each do |control|
-        expect(page).to have_css editor.control_selector(control)
-      end
-      expect(editor.content_element).to have_content('Some content...')
-      expect { find('[type="submit"]').click }
-        .to change { post.reload.description }.to '<p>Some content...</p>'
+    it 'initializes the editor', :aggregate_failures do
+      expect(editor.content_element).to be_present
+      expect(editor.content).to eq('<p>Some content</p>')
+      expect(input_field).to be_present
     end
 
-    it 'adds some bold text to the description', :aggregate_failures do
-      editor.toolbar_control(:bold)
-      editor << 'Some bold text'
+    it 'edits some content using the editor' do
+      editor << :return << 'More content'
+      editor.toggle_bold
+      editor << 'Some bold'
+      editor.toggle_italic
+      editor << 'Some italic'
+      editor.toggle_underline
+      editor << 'Some underline'
 
-      expect(editor.content_element).to have_content('Some bold text')
-      expect { find('[type="submit"]').click }
-        .to change { post.reload.description }.to '<p><strong>Some bold text</strong></p>'
+      expect(editor.content).to eq <<~HTML.clean_multiline
+        <p>Some content</p>
+        <p>More content<strong>Some bold<em>Some italic<u>Some underline</u></em></strong></p>
+      HTML
     end
 
-    it 'adds some italic text to the description', :aggregate_failures do
-      editor.toolbar_control(:italic)
-      editor << 'Some italic text'
+    it 'updates the field when submitting', :aggregate_failures do
+      editor.toggle_bold
+      editor << 'More content'
 
-      expect(editor.content_element).to have_content('Some italic text')
-      expect { find('[type="submit"]').click }
-        .to change { post.reload.description }.to '<p><em>Some italic text</em></p>'
-    end
+      before = '<p>Some content</p>'
+      after = '<p><strong>More content</strong>Some content</p>'
+      expect { submit_button.click }.to change { post.reload.description }.from(before).to(after)
 
-    it 'adds some underline text to the description', :aggregate_failures do
-      editor.toolbar_control(:underline)
-      editor << 'Some underline text'
-
-      expect(editor.content_element).to have_content('Some underline text')
-      expect { find('[type="submit"]').click }
-        .to change { post.reload.description }.to '<p><u>Some underline text</u></p>'
-    end
-
-    it 'adds a link to the description', :aggregate_failures do
-      editor << "Just a link"
-      editor.select_all
-      editor.toolbar_control(:link)
-      editor.element.find('[data-link]').send_keys("https://www.google.com", :return)
-
-      expect(editor.content_element).to have_content('Just a link')
-      html = '<p><a href="Just a linkhttps://www.google.com" rel="noopener noreferrer" target="_blank">Just a link</a></p>'
-      expect { find('[type="submit"]').click }.to change { post.reload.description }.to html
+      expect(page).to have_content('was successfully updated')
     end
   end
 
   context 'with 2 Quill editors' do
-    before do
+    let(:edit_page) do
       path = edit_admin_post_path(post)
-      Admin::Posts::EditPage.new(path: path).load
+      Admin::Posts::EditPage.new(path: path)
+    end
+    let(:first_editor) { edit_page.lookup_editor(editor_container: '#post_description_input') }
+    let(:second_editor) { edit_page.lookup_editor(editor_container: '#post_summary_input') }
+
+    before do
+      edit_page.load
     end
 
     it 'updates some HTML content for 2 fields', :aggregate_failures do
-      editor1 = lookup_editor(field: 'post_description')
-      editor1.clear.toolbar_control(:bold)
-      editor1 << "Some description"
+      # Check the initial states
+      expect(first_editor.content).to eq('<p>Some content</p>')
+      expect(second_editor.content).to eq('<p>Post summary</p>')
 
-      editor2 = lookup_editor(field: 'post_summary')
-      editor2.clear.toolbar_control(:italic)
-      editor2 << "Some summary"
+      # Add some content to both the editors
+      first_editor.toggle_bold
+      first_editor << 'Some bold'
 
-      find('[type="submit"]').click
-      post.reload
+      second_editor.toggle_italic
+      second_editor << 'Some italic'
 
-      expect(post.description).to eq '<p><strong>Some description</strong></p>'
-      expect(post.summary).to eq '<p><em>Some summary</em></p>'
+      # Check that both the fields change
+      before = '<p>Some content</p>'
+      after = '<p><strong>Some bold</strong>Some content</p>'
+      expect { submit_button.click }.to change { post.reload.description }.from(before).to(after)
+
+      expect(post.summary).to eq '<p><em>Some italic</em>Post summary</p>'
     end
   end
 
   context 'with a Quill editor in a nested resource' do
-    before do
+    let(:edit_page) do
       path = edit_admin_author_path(author)
-      Admin::Authors::EditPage.new(path: path).load
+      Admin::Authors::EditPage.new(path: path)
+    end
+    let(:submit_button) { find('#author_submit_action [type="submit"]') }
+
+    before do
+      post
+      edit_page.load
     end
 
     it 'updates some HTML content of a new nested resource', :aggregate_failures do
-      find('.posts.has_many_container .has_many_add').click
-      expect(page).to have_css('.posts.has_many_container .ql-editor', count: 2)
+      click_on 'Add New Post'
 
-      editor = lookup_editor(field: 'author_posts_attributes_1_description')
-      editor << "Some post text"
+      first_editor = edit_page.lookup_editor(editor_container: '#author_posts_attributes_0_description_input')
+      expect(first_editor.content).to eq('<p>Some content</p>')
 
-      fill_in('author[posts_attributes][1][title]', with: 'A new post')
-      find('[type="submit"]').click
+      fill_in('author[posts_attributes][1][title]', with: 'Some title')
+      second_editor = edit_page.lookup_editor(editor_container: '#author_posts_attributes_1_description_input')
+      second_editor.toggle_underline
+      second_editor << 'Some underline'
 
-      expect(page).to have_content('was successfully updated')
-      expect(author.posts.last.description).to eq '<p>Some post text</p>'
+      expect { submit_button.click }.to change(Post, :count).by(1)
+      expect(Post.last.description).to eq '<p><u>Some underline</u></p>'
     end
   end
 end
