@@ -29,17 +29,48 @@ RSpec.describe 'Quill editor' do
     end
 
     it 'edits some content using the editor' do
-      editor << :return << 'More content'
+      editor.select_all
+      editor.toggle_link
+      editor.tooltip_editing.send_keys(["https://blocknot.es", :return])
+
+      editor << :right << :return << 'More content'
       editor.toggle_bold
       editor << 'Some bold'
       editor.toggle_italic
       editor << 'Some italic'
       editor.toggle_underline
-      editor << 'Some underline'
+      editor << 'Some underline' << :return
+
+      editor.toggle_blockquote
+      editor << 'blockquote enabled' << :return
+      editor.toggle_blockquote
+
+      editor.toggle_code_block
+      editor << 'code block enabled' << :return
+      editor.toggle_code_block
+
+      editor << "Some text"
+      editor.toggle_sub
+      editor << "sub text"
+      editor.toggle_sub
+      editor << " More text"
+      editor.toggle_super
+      editor << "sup text"
+      editor.toggle_super
+      editor << :return
+
+      editor.open_dropdown(:align).toggle_align_right
+      editor << "Text aligned on the right"
 
       expect(editor.content).to eq <<~HTML.clean_multiline
-        <p>Some content</p>
+        <p><a href="https://blocknot.es" rel="noopener noreferrer" target="_blank">Some content</a></p>
         <p>More content<strong>Some bold<em>Some italic<u>Some underline</u></em></strong></p>
+        <blockquote>blockquote enabled</blockquote>
+        <div class="ql-code-block-container" spellcheck="false">
+          <div class="ql-code-block">code block enabled</div>
+        </div>
+        <p>Some text<sub>sub text</sub> More text<sup>sup text</sup></p>
+        <p class="ql-align-right">Text aligned on the right</p>
       HTML
     end
 
