@@ -17,7 +17,7 @@ Please :star: if you like it.
 
 ## Install
 
-_NOTE_: Ruby 2.7 is supported until version 1.1.0
+_NOTE_: the gem 2.x provide Quill 2.x, while Quill 1.x is provided with the gem version 1.x
 
 After installing Active Admin, add to your Gemfile: `gem 'activeadmin_quill_editor'` (and execute *bundle*)
 
@@ -34,8 +34,6 @@ If you installed Active Admin without Webpacker support (default for now):
 //= require activeadmin/quill_editor/quill
 //= require activeadmin/quill_editor_input
 ```
-
-> **UPDATE FROM VERSION <= 2.0**: please add to your _app/assets/stylesheets/active_admin.scss_ the line `@import 'activeadmin/quill_editor/quill.snow';`
 
 If you installed Active Admin with Webpacker support:
 

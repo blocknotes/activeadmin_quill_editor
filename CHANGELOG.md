@@ -2,6 +2,10 @@
 
 An Active Admin plugin to use Quill Rich Text Editor.
 
+## v2.0.0 - 2025-04-15
+
+- Update Quill from 1.3.7 to 2.0.3
+
 ## v1.3.0 - 2025-03-18
 
 - Javascript API: expose Quill editor query functions
