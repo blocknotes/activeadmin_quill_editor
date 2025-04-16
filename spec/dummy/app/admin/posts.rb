@@ -3,6 +3,12 @@
 ActiveAdmin.register Post do
   permit_params :author_id, :title, :summary, :description, :category, :dt, :position, :published, tag_ids: []
 
+  member_action :upload, method: [:post] do
+    result = { success: resource.images.attach(params[:file_upload]) }
+    result[:url] = url_for(resource.images.last) if result[:success]
+    render json: result
+  end
+
   index do
     selectable_column
     id_column
@@ -44,7 +50,12 @@ ActiveAdmin.register Post do
       f.input :author
       f.input :title
       f.input :summary, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: toolbar } } } }
-      f.input :description, as: :quill_editor # using default options
+      if object.new_record?
+        f.input :description, as: :quill_editor # using default options
+      else
+        plugin_opts = { image_uploader: { server_url: upload_admin_post_path(object.id), field_name: 'file_upload' } }
+        f.input :description, as: :quill_editor, input_html: { data: { plugins: plugin_opts } }
+      end
       f.input :category
       f.input :dt
       f.input :position
