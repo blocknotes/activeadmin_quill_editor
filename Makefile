@@ -40,6 +40,7 @@ lint:
 	@docker compose -f extra/docker-compose.yml exec app bin/rubocop
 
 server: seed
+	@rm -f spec/dummy/tmp/pids/server.pid
 	@docker compose -f extra/docker-compose.yml exec app bin/rails server -b 0.0.0.0 -p ${SERVER_PORT}
 
 specs:
